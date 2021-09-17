@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.NoSuchElementException;
+
 class SchlangemitDynArrayTest {
 
     SchlangemitDynArray array;
@@ -56,6 +58,12 @@ class SchlangemitDynArrayTest {
             array.insert(i);
         }
         assertEquals(0, array.remove());
+
+    }
+    @Test
+    void removeTest2() {
+
+        assertThrows(NoSuchElementException.class, () -> array.remove()); // Test geht durch da size 0 ist und daher eine Exception geworfen wird
 
     }
 }
